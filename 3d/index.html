@@ -23,7 +23,7 @@
       data-normal="-0.3221189055361862m 0.9374992082222058m -0.1316611000975875m" data-visibility-attribute="visible" data-orbit="-793.83deg 28.17deg 3.401m" data-target="-0.30m 0.38m 0.19m">
       <div class="HotspotAnnotation">Comic</div>
 
-    </button><button class="Hotspot" slot="hotspot-3"
+    </button><button class="Hotspot" id="animation" slot="hotspot-3"
       data-position="0.16677043694088162m 0.2768028423240493m 0.09252139153391645m"
       data-normal="-0.14626939463068392m 0.8887689295009292m 0.43439043975224123m" data-visibility-attribute="visible">
       <div class="HotspotAnnotation">Animation</div>
@@ -50,6 +50,9 @@
 
                     if (annotation.id === "comic") {
                       window.location.href = "comic/index.html";
+                    }
+                     if (annotation.id === "animation") {
+                      window.location.href = "animation/index.html";
                     }
 
                   
