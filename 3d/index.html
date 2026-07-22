@@ -1,45 +1,66 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>&lt;model-viewer&gt; template</title>
-    <meta charset="utf-8">
-    <meta name="description" content="&lt;model-viewer&gt; template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="./styles.css" rel="stylesheet"/>
-  </head>
-  <body>
-    <!-- <model-viewer> HTML element -->
-    <model-viewer id="hotspot-camera-view-demo" src="island3.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
-      <button class="Hotspot" slot="hotspot-1" data-position="-0.8250188399044829m 0.5046995970502346m -0.7141047618590044m" data-normal="-0.8948719463942709m 0m 0.44632297672932897m" data-visibility-attribute="visible"
-      data-orbit="-62.56deg 79.97deg 3.401m" data-target="-0.82m 0.58m -0.64m">
-          <div class="HotspotAnnotation">Painting</div>
-      </button>
-      <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
-      </div>
-      <button slot="ar-button" id="ar-button">
-          View in your space
-      </button>
-      <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
-      </div>
-    </model-viewer>  
-    <script src="script.js"></script>
-     <script type="module">
+
+<head>
+  <title>&lt;model-viewer&gt; template</title>
+  <meta charset="utf-8">
+  <meta name="description" content="&lt;model-viewer&gt; template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" href="./styles.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- <model-viewer> HTML element -->
+  <model-viewer src="island4.glb" id="hotspot-camera-view-demo"  ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral"
+    poster="poster.webp" shadow-intensity="1">
+    <button class="Hotspot"  slot="hotspot-1"
+      data-position="-0.8239488878908072m 0.504712929405083m -0.7119595215488532m"
+      data-normal="-0.8948719463942709m 0m 0.44632297672932897m" data-visibility-attribute="visible" data-orbit="-781.36deg 87.00deg 3.401m" data-target="-0.75m 0.53m -0.52m">
+      <div class="HotspotAnnotation">Painting</div>
+
+    </button><button class="Hotspot" id="comic" slot="hotspot-2"
+      data-position="-0.26498011098579777m 0.4087585361690679m 0.2851344841923754m"
+      data-normal="-0.3221189055361862m 0.9374992082222058m -0.1316611000975875m" data-visibility-attribute="visible" data-orbit="-793.83deg 28.17deg 3.401m" data-target="-0.30m 0.38m 0.19m">
+      <div class="HotspotAnnotation">Comic</div>
+
+    </button><button class="Hotspot" slot="hotspot-3"
+      data-position="0.16677043694088162m 0.2768028423240493m 0.09252139153391645m"
+      data-normal="-0.14626939463068392m 0.8887689295009292m 0.43439043975224123m" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation">Animation</div>
+
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+      View in your space
+    </button>
+    <div id="ar-prompt">
+      <img src="ar_hand_prompt.png">
+    </div>
+  </model-viewer>
+  <script src="script.js"></script>
+  <script type="module">
                   const modelViewer2 = document.querySelector("#hotspot-camera-view-demo");
                   const annotationClicked = (annotation) => {
                     let dataset = annotation.dataset;
                     modelViewer2.cameraTarget = dataset.target;
                     modelViewer2.cameraOrbit = dataset.orbit;
                     modelViewer2.fieldOfView = '12deg';
+
+                    if (annotation.id === "comic") {
+                      window.location.href = "comic/index.html";
+                    }
+
+                  
                   }
 
                   modelViewer2.querySelectorAll('button').forEach((hotspot) => {
                     hotspot.addEventListener('click', () => annotationClicked(hotspot));
                   });
                 </script>
-    <!-- Loads <model-viewer> for browsers: -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
-   
-  </body>
+  <!-- Loads <model-viewer> for browsers: -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+</body>
+
 </html>
