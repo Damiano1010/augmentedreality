@@ -11,3 +11,9 @@ const onProgress = (event) => {
   }
 };
 document.querySelector('model-viewer').addEventListener('progress', onProgress);
+
+const mySound = document.querySelector("#strandsound");
+const my3d = document.querySelector("#hotspot-camera-view-demo")
+my3d.addEventListener("click", () => {
+  mySound.play();
+})
