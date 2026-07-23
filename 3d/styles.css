@@ -169,9 +169,16 @@ model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
 }
 
-img {
+#home {
     width: 5vw;
     position: fixed;
     top: 10px;
     left: 10px;
+}
+
+#pb {
+   width: 4vw;
+    position: fixed;
+    top: 10px;
+    right: 10px;
 }
